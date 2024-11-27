@@ -3,6 +3,7 @@
 
 # Собственные модули
 from create_tables import run_create_tables
+from fill_tables import run_fill_tables
 from database import (
     create_connection,
     get_default_db_path
@@ -15,8 +16,11 @@ def main(db_path=None):
     connection = create_connection(db_path)
 
     # ЛР1 создание таблиц
-    run_create_tables(connection=connection)
+    # run_create_tables(connection=connection)
     
+    # ЛР2 запись в таблицы
+    run_fill_tables(connection=connection)
+
 
 if __name__ == "__main__":
     main()
