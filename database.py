@@ -29,6 +29,18 @@ def execute_query(connection, query):
         print(f"Error: {ex}\nQuery: {query}")
 
 
+def fetch_data(connection, query):
+    cursor = connection.cursor()
+    try:
+        cursor.execute(query)
+        result = cursor.fetchall()  # Получаем все строки, возвращенные запросом
+        print("Query executed successfully")
+        return result
+    except Exception as ex:
+        print(f"Error: {ex}\nQuery: {query}")
+        return None
+
+
 def get_default_db_path():
     """Создаёт путь к файлу базы данных по умолчанию."""
     base_dir = os.getcwd()  # Текущая рабочая директория
